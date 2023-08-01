@@ -6,7 +6,14 @@ const text = ref("");
 
 </script>
 <template>
-  <v-textarea label="Type your text here" no-resize counter v-model="text" @change="emit('updateText', text)">
+  <v-textarea 
+    label="Type your text here" 
+    no-resize 
+    counter 
+    v-model="text" 
+    @change="emit('updateText', text)"
+    variant="outlined"
+  >
     {{ text }}
   </v-textarea>
 </template>
