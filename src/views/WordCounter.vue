@@ -2,6 +2,7 @@
 import Box from '../components/wordCounter/Box.vue';
 import Textarea from '../components/wordCounter/Textarea.vue';
 import { ref } from 'vue';
+const emit = defineEmits(['updateText'])
 
 const words = ref(0);
 const characters = ref(0);
@@ -10,7 +11,7 @@ const paragraphs = ref(0);
 const textContent = ref("");
 
 function countWords(content: string) {
-  words.value = content.trim().split(" ").length;
+  words.value = content.split(" ").length;
   return words;
 }
 
@@ -43,7 +44,7 @@ function updateText(content: string) {
   <v-container fluid>
     <v-row>
       <v-col cols="12">
-        <v-row>
+        <v-row justify="space-between">
           <v-col cols="3">
             <Box title="Words" :text="words" />
           </v-col>
@@ -60,6 +61,11 @@ function updateText(content: string) {
         <v-row>
           <v-col cols="12">
             <Textarea v-model="textContent" @update-text="updateText" />
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="12" offset="11">
+            <v-btn @click="emit('updateText', textContent)">Process</v-btn>
           </v-col>
         </v-row>
       </v-col>
