@@ -5,8 +5,8 @@
 
       Essentials Preset
     </v-app-bar-title>
-    <v-btn href="/">Home</v-btn>
-    <v-btn href="/words">WordCounter</v-btn>
+    <v-btn href="/" variant="tonal" class="ml-4">Home</v-btn>
+    <v-btn href="/words" variant="tonal" class="ml-4">WordCounter</v-btn>
   </v-app-bar>
 </template>
 
