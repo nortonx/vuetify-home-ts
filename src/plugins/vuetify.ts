@@ -24,5 +24,12 @@ export default createVuetify({
       },
     },
   },
-  blueprint: md2
+  blueprint: md2,
+  defaults: {
+    VBtn: {
+      color: 'primary',
+      variant: 'tonal',
+      rounded: true
+    }
+  }
 })
