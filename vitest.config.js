@@ -5,7 +5,14 @@ export default defineConfig({
   plugins: [vue()],
   test: {
     globals: true,
-    environment: 'happy-dom'
+    environment: 'happy-dom',
+    deps: {
+      optimizer: {
+        web: {
+          include: ['vuetify']
+        }
+      }
+    }
   },
   root: "."
 })
