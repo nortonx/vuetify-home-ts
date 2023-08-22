@@ -7,6 +7,7 @@
     <v-btn href="/portfolio" variant="tonal" class="ml-4">Portfolio</v-btn>
     <v-btn href="/jokes" variant="tonal" class="ml-4">Jokes</v-btn>
     <v-btn href="/words" variant="tonal" class="ml-4">WordCounter</v-btn>
+    <v-btn href="/password" variant="tonal" class="ml-4">Password Generator</v-btn>
     <v-btn href="https://www.linkedin.com/in/norton-almeida/" prepend-icon="mdi-linkedin" variant="tonal" class="ml-4">LinkedIn Profile</v-btn>
   </v-app-bar>
 </template>

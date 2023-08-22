@@ -31,5 +31,6 @@ export default createVuetify({
       variant: 'tonal',
       rounded: true
     }
-  }
+  },
+  ssr: true
 })

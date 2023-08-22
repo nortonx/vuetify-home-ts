@@ -28,6 +28,11 @@ const routes = [
         path: '/words',
         name: 'WordCounter',
         component: () => import('@/views/WordCounter.vue'),
+      },
+      {
+        path: '/password',
+        name: 'PasswordGenerator',
+        component: () => import('@/views/PasswordGenerator.vue'),
       }
     ],
   },
