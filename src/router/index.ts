@@ -15,9 +15,24 @@ const routes = [
         component: () => import(/* webpackChunkName: "home" */ '@/views/Home.vue'),
       },
       {
+        path: '/portfolio',
+        name: 'Portfolio',
+        component: () => import('@/views/Portfolio.vue'),
+      },
+      {
+        path: '/jokes',
+        name: 'Jokes',
+        component: () => import('@/views/Jokes.vue'),
+      },
+      {
         path: '/words',
         name: 'WordCounter',
         component: () => import('@/views/WordCounter.vue'),
+      },
+      {
+        path: '/password',
+        name: 'PasswordGenerator',
+        component: () => import('@/views/PasswordGenerator.vue'),
       }
     ],
   },
