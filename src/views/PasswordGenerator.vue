@@ -1,17 +1,12 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
-const emit = defineEmits(['updatePassword'])
+
 const password = ref("");
 const enableNumbers = ref(false);
 const enableUppercaseLetters = ref(false);
 const enableSpecialCharacters = ref(false);
 const passwordLength = ref(8);
 const passwordIsValid = ref(false)
-
-
-function updatePassword(password: string) {
-  if(password) console.log(password)
-}
 
 function checkNumbers(password: string) {
   return Boolean(password.match(/[0-9]/));
@@ -23,6 +18,7 @@ function checkUppercase(password: string) {
 
 function checkSpecialCharacters(password: string) {
   console.log("checking for special characters...");
+  return Boolean(password.match(/[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/))
 }
 function copyText() {
   navigator.clipboard.writeText(password.value)
@@ -58,8 +54,9 @@ function generatePassword() {
 
 function validatePassword(password: string) {
   if (checkNumbers(password) 
-      && checkUppercase(password)) {
-        passwordIsValid.value = true;
+      || checkUppercase(password)
+      || checkSpecialCharacters(password)) {
+      passwordIsValid.value = true;
     } else {
       passwordIsValid.value = false;
     }
