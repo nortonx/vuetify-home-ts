@@ -14,12 +14,10 @@ function updatePassword(password: string) {
 }
 
 function checkNumbers(password: string) {
-  console.log("checking for numbers...");
   return Boolean(password.match(/[0-9]/));
 }
 
 function checkUppercase(password: string) {
-  console.log("checking for uppercase characters...");
   return Boolean(password.match(/[A-Z]/));
 }
 
@@ -75,7 +73,7 @@ function validatePassword(password: string) {
       <v-col cols="12">
         <v-card
           title="Password Generator"
-          text="This is the content of password generator"
+          text="Default password is set to lowercase characters."
           class="m-4"
           elevation="3"
         >
@@ -128,6 +126,7 @@ function validatePassword(password: string) {
                 tick-size="2"
                 :ticks="[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]"
                 v-model="passwordLength"
+                label="Number of characters:"
               >
               </v-slider>
             </v-col>
@@ -137,15 +136,17 @@ function validatePassword(password: string) {
               <v-card
                 v-if="passwordIsValid"
                 text="Password is valid!"
-                class="my-4"
+                class="my-4 align-center d-flex"
               >
-                <v-icon>mdi-check</v-icon>
+                <v-icon class="mr-6">mdi-checkbox-marked-circle</v-icon>
               </v-card>
               <v-card
                 v-else
                 text="Password does not match criteria"
-                class="my-4"
-              ></v-card>
+                class="my-4 align-center d-flex"
+              >
+                <v-icon class="mr-6">mdi-cancel</v-icon>
+              </v-card>
             </v-col>
           </v-row>
         </v-card>
