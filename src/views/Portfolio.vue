@@ -5,7 +5,8 @@
         <v-card
           title="Github repositories:"
         >
-          <v-list lines="one">
+          <loader v-if="isLoading"></loader>
+          <v-list lines="one" v-else>
             <v-list-item
               v-for="repo in repositories"
               :key="repo.id"
@@ -24,13 +25,23 @@
 <script lang="ts" setup>
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
+import Loader from '../components/Loader.vue';
 
 const GITHUB_URL = `https://api.github.com/users/nortonx/repos`;
 const repositories = ref();
+const isLoading = ref(false);
 
 async function getRepos() {
-  const response = await axios.get(GITHUB_URL);
-  repositories.value = response.data;
+  isLoading.value = true;
+  try {
+    const response = await axios.get(GITHUB_URL);
+    repositories.value = response.data;
+    isLoading.value = false;
+  } catch (e) {
+    console.error(e);
+  } finally {
+    isLoading.value = false;
+  }
 }
 
 onMounted( () => {
